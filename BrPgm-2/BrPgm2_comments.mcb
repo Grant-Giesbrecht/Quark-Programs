@@ -1,0 +1,21 @@
+// Designed to test:
+//   * REGC <-> RAM0 instructions
+//   * REGC -> CACHE A
+//
+//
+// Designed for Proto_0_1_0
+
+0:2 	// PMEM_REGA
+1:7 	// Value 7
+2:3		// PMEM_REGB
+3:14	// Value 14
+4:1		// Add
+5:5		// REGC_RAM0
+6:2		// Addr-0
+7:0		// Addr-8
+8:6		// RAM0_REGA
+9:2		// Addr-0
+10:0	// Addr-8
+11:1	// Add
+12:7	// Save to Cache
+13:4	// HALT
