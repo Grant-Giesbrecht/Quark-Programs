@@ -52,7 +52,7 @@
 51: BITXOR // Invert mask
 52: REGC_REGB // Save inverted mask to register B
 53: SYSREG_REGA // Read system register
-54: BITOR // Apply mask
+54: BITAND // Apply mask
 55: REGC_SYSREG // Update system register
 56: PMEM_REGB // Load mask
 57: 4
@@ -60,7 +60,7 @@
 59: BITXOR // Invert mask
 60: REGC_REGB // Save inverted mask to register B
 61: SYSREG_REGA // Read system register
-62: BITOR // Apply mask
+62: BITAND // Apply mask
 63: REGC_SYSREG // Update system register
 64: PMEM_REGB // Load mask
 65: 2
@@ -68,7 +68,7 @@
 67: BITXOR // Invert mask
 68: REGC_REGB // Save inverted mask to register B
 69: SYSREG_REGA // Read system register
-70: BITOR // Apply mask
+70: BITAND // Apply mask
 71: REGC_SYSREG // Update system register
 72: PMEM_REGB // Load mask
 73: 8
@@ -76,7 +76,7 @@
 75: BITXOR // Invert mask
 76: REGC_REGB // Save inverted mask to register B
 77: SYSREG_REGA // Read system register
-78: BITOR // Apply mask
+78: BITAND // Apply mask
 79: REGC_SYSREG // Update system register
 80: PMEM_REGB // Load mask
 81: 32
@@ -84,7 +84,7 @@
 83: BITXOR // Invert mask
 84: REGC_REGB // Save inverted mask to register B
 85: SYSREG_REGA // Read system register
-86: BITOR // Apply mask
+86: BITAND // Apply mask
 87: REGC_SYSREG // Update system register
 88: PMEM_REGB // Load mask
 89: 16
@@ -92,7 +92,7 @@
 91: BITXOR // Invert mask
 92: REGC_REGB // Save inverted mask to register B
 93: SYSREG_REGA // Read system register
-94: BITOR // Apply mask
+94: BITAND // Apply mask
 95: REGC_SYSREG // Update system register
 96: PMEM_REGB // Load mask
 97: 128
@@ -100,7 +100,7 @@
 99: BITXOR // Invert mask
 100: REGC_REGB // Save inverted mask to register B
 101: SYSREG_REGA // Read system register
-102: BITOR // Apply mask
+102: BITAND // Apply mask
 103: REGC_SYSREG // Update system register
 104: PMEM_REGB // Load mask
 105: 64
@@ -108,7 +108,7 @@
 107: BITXOR // Invert mask
 108: REGC_REGB // Save inverted mask to register B
 109: SYSREG_REGA // Read system register
-110: BITOR // Apply mask
+110: BITAND // Apply mask
 111: REGC_SYSREG // Update system register
 112: JUMP
 113: 8
