@@ -1,0 +1,76 @@
+0: PMEM_REGA
+1: 0
+2: PMEM_REGB
+3: 0
+4: ADD
+5: REGC_SYSREG
+6: PMEM_CHA
+7: 255
+8: SYSREG_REGA // Read system register
+9: PMEM_REGB // Load mask
+10: 1
+11: BITOR // Apply mask
+12: REGC_SYSREG // Update system register
+13: SYSREG_REGA // Read system register
+14: PMEM_REGB // Load mask
+15: 4
+16: BITOR // Apply mask
+17: REGC_SYSREG // Update system register
+18: SYSREG_REGA // Read system register
+19: PMEM_REGB // Load mask
+20: 2
+21: BITOR // Apply mask
+22: REGC_SYSREG // Update system register
+23: SYSREG_REGA // Read system register
+24: PMEM_REGB // Load mask
+25: 8
+26: BITOR // Apply mask
+27: REGC_SYSREG // Update system register
+28: SYSREG_REGA // Read system register
+29: PMEM_REGB // Load mask
+30: 32
+31: BITOR // Apply mask
+32: REGC_SYSREG // Update system register
+33: PMEM_REGB // Load mask
+34: 1
+35: CHA_REGA //Load 0xFF
+36: BITXOR // Invert mask
+37: REGC_REGB // Save inverted mask to register B
+38: SYSREG_REGA // Read system register
+39: BITAND // Apply mask
+40: REGC_SYSREG // Update system register
+41: PMEM_REGB // Load mask
+42: 4
+43: CHA_REGA //Load 0xFF
+44: BITXOR // Invert mask
+45: REGC_REGB // Save inverted mask to register B
+46: SYSREG_REGA // Read system register
+47: BITAND // Apply mask
+48: REGC_SYSREG // Update system register
+49: PMEM_REGB // Load mask
+50: 2
+51: CHA_REGA //Load 0xFF
+52: BITXOR // Invert mask
+53: REGC_REGB // Save inverted mask to register B
+54: SYSREG_REGA // Read system register
+55: BITAND // Apply mask
+56: REGC_SYSREG // Update system register
+57: PMEM_REGB // Load mask
+58: 8
+59: CHA_REGA //Load 0xFF
+60: BITXOR // Invert mask
+61: REGC_REGB // Save inverted mask to register B
+62: SYSREG_REGA // Read system register
+63: BITAND // Apply mask
+64: REGC_SYSREG // Update system register
+65: PMEM_REGB // Load mask
+66: 32
+67: CHA_REGA //Load 0xFF
+68: BITXOR // Invert mask
+69: REGC_REGB // Save inverted mask to register B
+70: SYSREG_REGA // Read system register
+71: BITAND // Apply mask
+72: REGC_SYSREG // Update system register
+73: JUMP
+74: 8
+75: 0

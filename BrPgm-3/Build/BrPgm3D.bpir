@@ -1,0 +1,50 @@
+0: PMEM_REGA
+1: 0
+2: PMEM_REGB
+3: 0
+4: ADD
+5: REGC_SYSREG
+6: PMEM_CHA
+7: 255
+8: SYSREG_REGA // Read system register
+9: PMEM_REGB // Load mask
+10: 32
+11: BITOR // Apply mask
+12: REGC_SYSREG // Update system register
+13: SYSREG_REGA // Read system register
+14: PMEM_REGB // Load mask -------- Problem bit?
+15: 16
+16: BITOR // Apply mask
+17: REGC_SYSREG // Update system register
+18: SYSREG_REGA // Read system register
+19: PMEM_REGB // Load mask
+20: 128
+21: BITOR // Apply mask
+22: REGC_SYSREG // Update system register
+23: PMEM_REGB // Load mask
+24: 32
+25: CHA_REGA //Load 0xFF
+26: BITXOR // Invert mask
+27: REGC_REGB // Save inverted mask to register B
+28: SYSREG_REGA // Read system register
+29: BITAND // Apply mask
+30: REGC_SYSREG // Update system register
+31: PMEM_REGB // Load mask --------- Problem bit?
+32: 16
+33: CHA_REGA //Load 0xFF
+34: BITXOR // Invert mask
+35: REGC_REGB // Save inverted mask to register B
+36: SYSREG_REGA // Read system register
+37: BITAND // Apply mask
+38: REGC_SYSREG // Update system register
+39: PMEM_REGB // Load mask
+40: 128
+41: CHA_REGA //Load 0xFF
+42: BITXOR // Invert mask
+43: REGC_REGB // Save inverted mask to register B
+44: SYSREG_REGA // Read system register
+45: BITAND // Apply mask
+46: REGC_SYSREG // Update system register
+47: JUMP
+48: 8
+49: 0

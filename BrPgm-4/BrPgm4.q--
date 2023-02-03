@@ -1,0 +1,56 @@
+// BrPgm-4
+
+//CXCOMPILE qmm BrPgm4.q-- -o ./Build/BrPgm4.bpi -or ./Build/BrPgm4.bpir
+//CXGENRUN FALSE
+//CXPRINTCOM TRUE
+
+//********************* Prepare Timer Interrupt ********************************
+
+// Populate Cache-B with mask for all programable indicator to be off except for gamma
+VAL_CHB 0b00000100
+
+// Set timer interrupt period. Choosing 7168 s.t. counter lights can be tested
+VAL_CHC 0
+VAL_CHD 28d
+CHCD_TSTOP
+
+// Populate Timer ISR register
+VAL_AA #DEREF ISR_TIMER
+AA_TISR
+
+// Enable interrupts and enable timer interrupt clock
+// Sets: FLAG_INT_ENABLE and FLAG_TIMER_ENABLE
+SYSREG_REGA
+VAL_REGB 0b11000000
+BITOR
+REGC_SYSREG
+
+//********************* Prepare Infinite Loop **********************************
+
+// Turn on ind-alpha
+SYSREG_REGA
+VAL_REGB 0b00000001
+BITOR
+REGC_SYSREG
+
+// Turn off ind-beta
+SYSREG_REGA
+VAL_REGB 0b11111101
+BITAND
+REGC_SYSREG
+
+// Create infinite loop
+SYSREG_REGA #HERE LOOP_START // Read system register
+VAL_REGB 0b00000011 // Mask ind-alpha and beta
+BITXOR
+REGC_SYSREG
+JUMP #DEREF LOOP_START
+
+//********************* Interrupt Service Routines *****************************
+
+// Define ISR - toggle programmable indicators
+CHB_REGB #HERE ISR_TIMER
+SYSREG_REGA
+BITXOR
+REGC_SYSREG
+ISR_RTN

@@ -1,6 +1,12 @@
-// BrPgm-3
+// BrPgm-3A
+//
+// Same as BrPgm-3, except code block activating and deactivating 0b00010000 in
+// SYSREG is disabled.
+//
 
-//CXCOMPILE qmm BrPgm3.q-- -o ./Build/BrPgm3.bpi -or ./Build/BrPgm3.bpir
+
+
+//CXCOMPILE qmm BrPgm3A.q-- -o ./Build/BrPgm3A.bpi -or ./Build/BrPgm3A.bpir
 //CXGENRUN FALSE
 //CXPRINTCOM TRUE
 
@@ -40,20 +46,20 @@ PMEM_REGB 0b00100000 // Load mask
 BITOR // Apply mask
 REGC_SYSREG // Update system register
 
-SYSREG_REGA // Read system register
-PMEM_REGB 0b00010000 // Load mask
-BITOR // Apply mask
-REGC_SYSREG // Update system register
+// SYSREG_REGA // Read system register
+// PMEM_REGB 0b00010000 // Load mask
+// BITOR // Apply mask
+// REGC_SYSREG // Update system register
 
-SYSREG_REGA // Read system register
-PMEM_REGB 0b10000000 // Load mask
-BITOR // Apply mask
-REGC_SYSREG // Update system register
-
-SYSREG_REGA // Read system register
-PMEM_REGB 0b01000000 // Load mask
-BITOR // Apply mask
-REGC_SYSREG // Update system register
+// SYSREG_REGA // Read system register
+// PMEM_REGB 0b10000000 // Load mask
+// BITOR // Apply mask
+// REGC_SYSREG // Update system register
+//
+// SYSREG_REGA // Read system register
+// PMEM_REGB 0b01000000 // Load mask
+// BITOR // Apply mask
+// REGC_SYSREG // Update system register
 
 // Start turning bits off
 
@@ -97,28 +103,28 @@ SYSREG_REGA // Read system register
 BITAND // Apply mask
 REGC_SYSREG // Update system register
 
-PMEM_REGB 0b00010000 // Load mask
-CHA_REGA //Load 0xFF
-BITXOR // Invert mask
-REGC_REGB // Save inverted mask to register B
-SYSREG_REGA // Read system register
-BITAND // Apply mask
-REGC_SYSREG // Update system register
+// PMEM_REGB 0b00010000 // Load mask
+// CHA_REGA //Load 0xFF
+// BITXOR // Invert mask
+// REGC_REGB // Save inverted mask to register B
+// SYSREG_REGA // Read system register
+// BITAND // Apply mask
+// REGC_SYSREG // Update system register
 
-PMEM_REGB 0b10000000 // Load mask
-CHA_REGA //Load 0xFF
-BITXOR // Invert mask
-REGC_REGB // Save inverted mask to register B
-SYSREG_REGA // Read system register
-BITAND // Apply mask
-REGC_SYSREG // Update system register
-
-PMEM_REGB 0b01000000 // Load mask
-CHA_REGA //Load 0xFF
-BITXOR // Invert mask
-REGC_REGB // Save inverted mask to register B
-SYSREG_REGA // Read system register
-BITAND // Apply mask
-REGC_SYSREG // Update system register
+// PMEM_REGB 0b10000000 // Load mask
+// CHA_REGA //Load 0xFF
+// BITXOR // Invert mask
+// REGC_REGB // Save inverted mask to register B
+// SYSREG_REGA // Read system register
+// BITAND // Apply mask
+// REGC_SYSREG // Update system register
+//
+// PMEM_REGB 0b01000000 // Load mask
+// CHA_REGA //Load 0xFF
+// BITXOR // Invert mask
+// REGC_REGB // Save inverted mask to register B
+// SYSREG_REGA // Read system register
+// BITAND // Apply mask
+// REGC_SYSREG // Update system register
 
 JUMP #DEREF LOOP_START

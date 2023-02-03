@@ -1,0 +1,59 @@
+// BrPgm-3
+
+//CXCOMPILE qmm BrPgm3D.q-- -o ./Build/BrPgm3D.bpi -or ./Build/BrPgm3D.bpir
+//CXGENRUN FALSE
+//CXPRINTCOM TRUE
+
+// Initialize SysReg with 0
+PMEM_REGA 0
+PMEM_REGB 0
+ADD
+REGC_SYSREG
+
+// Prepare inversion
+PMEM_CHA 0xFF
+
+// Start turning bits on
+
+SYSREG_REGA #HERE LOOP_START // Read system register
+PMEM_REGB 0b00100000 // Load mask
+BITOR // Apply mask
+REGC_SYSREG // Update system register
+
+SYSREG_REGA // Read system register
+PMEM_REGB 0b00010000 // Load mask -------- Problem bit?
+BITOR // Apply mask
+REGC_SYSREG // Update system register
+
+SYSREG_REGA // Read system register
+PMEM_REGB 0b10000000 // Load mask
+BITOR // Apply mask
+REGC_SYSREG // Update system register
+
+// Start turning bits off
+
+PMEM_REGB 0b00100000 // Load mask
+CHA_REGA //Load 0xFF
+BITXOR // Invert mask
+REGC_REGB // Save inverted mask to register B
+SYSREG_REGA // Read system register
+BITAND // Apply mask
+REGC_SYSREG // Update system register
+
+PMEM_REGB 0b00010000 // Load mask --------- Problem bit?
+CHA_REGA //Load 0xFF
+BITXOR // Invert mask
+REGC_REGB // Save inverted mask to register B
+SYSREG_REGA // Read system register
+BITAND // Apply mask
+REGC_SYSREG // Update system register
+
+PMEM_REGB 0b10000000 // Load mask
+CHA_REGA //Load 0xFF
+BITXOR // Invert mask
+REGC_REGB // Save inverted mask to register B
+SYSREG_REGA // Read system register
+BITAND // Apply mask
+REGC_SYSREG // Update system register
+
+JUMP #DEREF LOOP_START
